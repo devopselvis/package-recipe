@@ -19,15 +19,15 @@ jobs:
           node-version: 21.x
           registry-url: https://npm.pkg.github.com/
 
-      - name: Create .npmrc
-        run: echo "registry=https://npm.pkg.github.com/devopselvis" > .npmrc
-      
       - name: Install dependencies
         run: npm install
         
       - name: Run tests
         run: npm test
-        
+      
+      - name: Create .npmrc
+        run: echo "registry=https://npm.pkg.github.com/devopselvis" > .npmrc
+
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
