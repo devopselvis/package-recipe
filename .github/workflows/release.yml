@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: 21.x
           registry-url: https://npm.pkg.github.com/
+
+      - name: Create .npmrc
+        run: echo "registry=https://npm.pkg.github.com/devopselvis" > .npmrc
       
       - name: Install dependencies
         run: npm install
